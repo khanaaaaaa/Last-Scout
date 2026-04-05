@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell=English:ital@0;1&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --red: #c0392b;
+    --dim: #888;
+    --bg: #0a0a0a;
+    --text: #ddd;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IM Fell English', Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, #000 100%);
+    pointer-events: none;
+}
+
+#game {
+    width: min(600px, 90vw);
+    text-align: center;
+    padding: 2rem;
+}
+
+#title {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    letter-spacing: 10px;
+    color: var(--red);
+    text-shadow: 0 0 30px #c0392b66;
+    margin-bottom: 2.5rem;
+}
+
+#scene-text {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.9;
+    min-height: 80px;
+    font-style: italic;
+    color: #ccc;
+}
+
+#choices {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+button {
+    background: transparent;
+    border: 1px solid #333;
+    color: var(--dim);
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.65rem 1.5rem;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    transition: color 0.25s, border-color 0.25s, transform 0.2s;
+}
+
+button:hover {
+    color: #fff;
+    border-color: #fff;
+    transform: scale(1.04);
+}
+
+button:active { transform: scale(0.98); }
+
+@keyframes deathFlash {
+    0% { background: #1a0000; }
+    50% { background: #2d0000; }
+    100% { background: var(--bg); }
+}
+
+body.flash { animation: deathFlash 0.6s ease-out forwards; }
+
+@keyframes sceneFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: sceneFade 0.5s ease forwards; }
