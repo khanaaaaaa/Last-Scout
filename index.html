@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Last Scout</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Last Scout</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="game">
-        <h1 id="title">Last Scout</h1>
-        <p id="scene-text"></p>
-        <div id="choices"></div>
+
+  <div id="bg-layer"></div>
+  <div id="char-layer">
+    <div id="char-portrait"></div>
+    <div id="char-name"></div>
+  </div>
+  <div id="vignette"></div>
+
+  <div id="game">
+    <div id="hud">
+      <span id="lore-tag"></span>
+      <span id="rank">Rank: Scout</span>
     </div>
-    <script src="js/scenes/scene1.js"></script>
-<script src="js/scenes/scene2A.js"></script>
-<script src="js/scenes/scene2B.js"></script>
-<script src="js/scenes/scene2C.js"></script>
-<script src="js/scenes/scene3.js"></script>
-<script src="js/scenes/scene4A.js"></script>
-<script src="js/scenes/scene4B.js"></script>
-<script src="js/scenes/scene5.js"></script>
-<script src="js/scenes/index.js"></script>
-<script src="js/engine.js"></script>
+    <h1 id="title">LAST SCOUT</h1>
+    <div id="dialogue-box" class="hidden">
+      <span id="dialogue-speaker"></span>
+      <span id="dialogue-line"></span>
+    </div>
+    <p id="scene-text"></p>
+    <div id="choices"></div>
+  </div>
+
+  <script src="js/scenes/scene1.js"></script>
+  <script src="js/scenes/scene2A.js"></script>
+  <script src="js/scenes/scene2B.js"></script>
+  <script src="js/scenes/scene2C.js"></script>
+  <script src="js/scenes/scene3.js"></script>
+  <script src="js/scenes/scene3B.js"></script>
+  <script src="js/scenes/scene4A.js"></script>
+  <script src="js/scenes/scene4B.js"></script>
+  <script src="js/scenes/scene4C.js"></script>
+  <script src="js/scenes/scene5.js"></script>
+  <script src="js/scenes/index.js"></script>
+  <script src="js/engine.js"></script>
 </body>
 </html>

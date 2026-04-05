@@ -1,10 +1,13 @@
 const scene2B = {
-    bg: 'assets/bg/street.png',
-    char: 'assets/chars/armin.png',
-    tag: 'Shiganshina - Residential District',
-    text: 'The crowd surges. You move with it.\n\nArmin once said: "Someone who can\'t sacrifice anything can never change anything."\n\nYou keep running. The smoke swallows the street behind you.',
-    choices: [
-        { label: 'Keep running toward the inner gate', next: 'scene3' },
-        { label: 'Duck into a building and hide', end: 'The Titans don\'t search buildings.\n\nBut the fire does.\n\nThey always check the shadows.' }
-    ]
+  bg:   'street',
+  char: 'armin',
+  tag:  'Shiganshina — Residential District',
+  rank: 'Scout',
+  dialogue: { speaker: 'Armin Arlert', line: '"There\'s a route through the market — follow me. I know this district."' },
+  text: 'Armin is directing civilians through a side street, his voice shaking but his mind sharp.\n\nHe spots your Scout uniform and grabs your arm.\n\n"I need someone who can hold the rear. The Titans are two blocks back."',
+  choices: [
+    { label: 'Hold the rear with Armin',              next: 'scene3', effect: s => s.armin = true },
+    { label: 'Take point — clear the route ahead',    next: 'scene3' },
+    { label: 'Keep running — every man for himself',  next: 'scene3', effect: s => s.coward = true }
+  ]
 };
