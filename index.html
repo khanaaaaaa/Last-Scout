@@ -8,24 +8,29 @@
 <body>
 
   <div id="bg-layer"></div>
+  <div id="bg-layer-next"></div>
+  <div id="particles"></div>
+  <div id="vignette"></div>
   <div id="char-layer">
     <div id="char-portrait"></div>
     <div id="char-name"></div>
   </div>
-  <div id="vignette"></div>
 
   <div id="game">
     <div id="hud">
       <span id="lore-tag"></span>
-      <span id="rank">Rank: Scout</span>
+      <span id="rank">Scout Regiment</span>
     </div>
-    <h1 id="title">LAST SCOUT</h1>
-    <div id="dialogue-box" class="hidden">
-      <span id="dialogue-speaker"></span>
-      <span id="dialogue-line"></span>
+    <h1 id="title">LAST<br>SCOUT</h1>
+    <div id="panel">
+      <div id="dialogue-box" class="hidden">
+        <span id="dialogue-speaker"></span>
+        <p id="dialogue-line"></p>
+      </div>
+      <p id="scene-text"></p>
+      <div id="skip-hint">[ click to skip ]</div>
     </div>
-    <p id="scene-text"></p>
-    <div id="choices"></div>
+    <nav id="choices"></nav>
   </div>
 
   <script src="js/scenes/scene1.js"></script>
