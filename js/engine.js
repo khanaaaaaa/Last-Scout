@@ -1,1 +1,0 @@
-loadScene('scene1');

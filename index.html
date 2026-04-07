@@ -1,58 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>LAST SCOUT</title>
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/crt.css">
+  <title>Last Scout - AOT Game</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div id="crt"></div>
-  <div id="phosphor"></div>
-  <div id="flicker"></div>
-  <div id="scan-line"></div>
-  <div id="bg-layer"></div>
-  <div id="bg-layer-next"></div>
-  <div id="particles"></div>
-  <div id="vignette"></div>
+  <div id="background-image"></div>
 
-  <div id="char-layer">
-    <div id="char-portrait"></div>
-    <div id="char-name"></div>
-  </div>
+  <div id="main-container">
+    <h1 id="game-title">LAST SCOUT</h1>
+    <p id="subtitle">Attack on Titan Fan Game</p>
 
-  <div id="hud">
-    <span id="lore-tag"></span>
-    <span id="rank"></span>
-  </div>
+    <div id="location-text"></div>
 
-  <div id="title-block">
-    <div id="title-sub">ATTACK ON TITAN</div>
-    <h1 id="title">LAST SCOUT</h1>
-  </div>
-
-  <div id="narration-box" class="hidden">
-    <p id="scene-text"></p>
-  </div>
-
-  <div id="game">
-    <nav id="choices"></nav>
-
-    <div id="panel">
-      <div id="dialogue-box">
-        <div id="dialogue-speaker-tab" class="hidden"></div>
-        <p id="dialogue-line"></p>
-      </div>
-      <div id="skip-hint">PRESS TO CONTINUE</div>
+    <div id="character-box">
+      <div id="character-img"></div>
+      <p id="character-name-text"></p>
     </div>
 
-    <div id="footer">
-      <span id="footer-left">SURVEY CORPS // FIELD UNIT</span>
-      <span id="footer-right">YEAR 850</span>
+    <div id="dialogue-area" style="display:none;">
+      <p id="speaker-name"></p>
+      <p id="dialogue-text"></p>
     </div>
+
+    <div id="story-box">
+      <p id="story-text"></p>
+    </div>
+
+    <div id="buttons-area"></div>
+
+    <p id="click-to-continue" style="display:none;">click anywhere to continue...</p>
   </div>
 
   <script src="js/scenes/scene1.js"></script>
@@ -66,14 +45,6 @@
   <script src="js/scenes/scene4C.js"></script>
   <script src="js/scenes/scene5.js"></script>
   <script src="js/scenes/index.js"></script>
-  <script src="js/bg.js"></script>
-  <script src="js/particles.js"></script>
-  <script src="js/sound.js"></script>
-  <script src="js/transitions.js"></script>
-  <script src="js/typewriter.js"></script>
-  <script src="js/hud.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/renderer.js"></script>
-  <script src="js/engine.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>
