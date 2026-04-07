@@ -144,12 +144,7 @@ body {
   border-color: #cc0000;
 }
 
-#click-to-continue {
-  color: #555555;
-  font-size: 12px;
-  margin-top: 15px;
-  animation: blink 1.5s infinite;
-}
+#click-to-continue { display: none; }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }

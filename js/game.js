@@ -22,21 +22,18 @@ var dialogueText = document.getElementById('dialogue-text');
 var locationText = document.getElementById('location-text');
 var charImg = document.getElementById('character-img');
 var charNameText = document.getElementById('character-name-text');
-var clickToContinue = document.getElementById('click-to-continue');
 
 function startTyping(element, text, speed, callback) {
   if (isTyping) {
     clearInterval(typeInterval);
     element.textContent = text;
     isTyping = false;
-    clickToContinue.style.display = 'none';
     if (callback) callback();
     return;
   }
 
   isTyping = true;
   element.textContent = '';
-  clickToContinue.style.display = 'block';
   var i = 0;
 
   typeInterval = setInterval(function() {
@@ -45,7 +42,6 @@ function startTyping(element, text, speed, callback) {
     if (i >= text.length) {
       clearInterval(typeInterval);
       isTyping = false;
-      clickToContinue.style.display = 'none';
       if (callback) callback();
     }
   }, speed || 25);
