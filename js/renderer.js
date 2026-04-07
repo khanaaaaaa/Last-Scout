@@ -6,12 +6,14 @@ const state = {
   levi: false, erwin: false, eren: false, armin: false, mikasa: false
 };
 
+let firstLoad = true;
+
 async function renderChoices(choices, choicesBg) {
   choicesDiv.innerHTML = '';
 
   if (choicesBg) {
     crossfadeBg(choicesBg, 1800);
-    await wait(500);
+    await wait(400);
   }
 
   const divider = document.createElement('div');
@@ -19,7 +21,7 @@ async function renderChoices(choices, choicesBg) {
   choicesDiv.appendChild(divider);
 
   for (let i = 0; i < choices.length; i++) {
-    await wait(i === 0 ? 350 : 150);
+    await wait(i === 0 ? 300 : 130);
     const choice = choices[i];
     const btn = document.createElement('button');
     btn.textContent = choice.label;
@@ -39,31 +41,32 @@ async function loadScene(id) {
   const scene = SCENES[id];
   if (!scene) { console.error('Missing scene:', id); return; }
 
-  await fadePanel(false);
+  if (!firstLoad) await fadePanel(false);
 
   choicesDiv.innerHTML  = '';
   sceneText.textContent = '';
   sceneText.classList.remove('ending');
   hideDialogue();
-
   setHud(scene);
   document.body.classList.toggle('danger', !!scene.danger);
   spawnParticles(scene.bg);
-  crossfadeBg(scene.bg, 2400);
+  crossfadeBg(scene.bg, 2000);
   setChar(scene);
 
-  await wait(2000);
+  await wait(firstLoad ? 800 : 1600);
+  firstLoad = false;
+
   await fadePanel(true);
-  await wait(500);
+  await wait(400);
 
   if (scene.dialogue) {
     showDialogue(scene.dialogue.speaker);
     await typewrite(dialogueLine, scene.dialogue.line, 20);
-    await wait(700);
+    await wait(600);
   }
 
   await typewrite(sceneText, scene.text, 24);
-  await wait(400);
+  await wait(300);
   await renderChoices(scene.choices, scene.choicesBg);
 }
 
@@ -72,18 +75,18 @@ async function endGame(message) {
   sceneText.classList.add('ending');
   document.body.classList.remove('danger');
 
-  await wait(300);
+  await wait(200);
   document.body.classList.add('flash', 'shake');
   setTimeout(() => document.body.classList.remove('flash', 'shake'), 950);
 
   await typewrite(sceneText, message, 34);
-  await wait(1000);
+  await wait(900);
 
   const divider = document.createElement('div');
   divider.className = 'divider fade-in';
   choicesDiv.appendChild(divider);
 
-  await wait(500);
+  await wait(400);
 
   const btn = document.createElement('button');
   btn.textContent = 'PLAY AGAIN';
@@ -91,6 +94,7 @@ async function endGame(message) {
   btn.onclick = () => {
     Object.keys(state).forEach(k => state[k] = false);
     sceneText.classList.remove('ending');
+    firstLoad = true;
     loadScene('scene1');
   };
   choicesDiv.appendChild(btn);
