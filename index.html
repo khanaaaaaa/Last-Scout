@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Last Scout</title>
+  <title>LAST SCOUT</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <div id="crt"></div>
   <div id="bg-layer"></div>
   <div id="bg-layer-next"></div>
   <div id="particles"></div>
   <div id="vignette"></div>
+
   <div id="char-layer">
     <div id="char-portrait"></div>
     <div id="char-name"></div>
@@ -19,18 +21,32 @@
   <div id="game">
     <div id="hud">
       <span id="lore-tag"></span>
-      <span id="rank">Scout Regiment</span>
+      <span id="rank"></span>
     </div>
-    <h1 id="title">LAST<br>SCOUT</h1>
+
+    <div id="title-block">
+      <div id="title-sub">ATTACK ON TITAN</div>
+      <h1 id="title">LAST SCOUT</h1>
+    </div>
+
     <div id="panel">
       <div id="dialogue-box" class="hidden">
-        <span id="dialogue-speaker"></span>
+        <div id="dialogue-header">
+          <span id="dialogue-speaker"></span>
+          <span id="dialogue-tag">// FIELD COMM</span>
+        </div>
         <p id="dialogue-line"></p>
       </div>
       <p id="scene-text"></p>
-      <div id="skip-hint">[ click to skip ]</div>
+      <div id="skip-hint">PRESS TO CONTINUE</div>
     </div>
+
     <nav id="choices"></nav>
+
+    <div id="footer">
+      <span id="footer-left">SURVEY CORPS // FIELD UNIT</span>
+      <span id="footer-right">YEAR 850</span>
+    </div>
   </div>
 
   <script src="js/scenes/scene1.js"></script>
@@ -44,6 +60,10 @@
   <script src="js/scenes/scene4C.js"></script>
   <script src="js/scenes/scene5.js"></script>
   <script src="js/scenes/index.js"></script>
+  <script src="js/bg.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/renderer.js"></script>
   <script src="js/engine.js"></script>
 </body>
 </html>
