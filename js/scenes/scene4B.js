@@ -2,12 +2,12 @@ const scene4B = {
   bg:        'assets/bg/flare.png',
   choicesBg: 'assets/bg/flare_choice.png',
   char:      null,
-  tag:       'Shiganshina  /  Above the Smoke',
+  tag:       'Shiganshina  /  Above the Smoke  /  09:15',
   rank:      'Scout Regiment',
   dialogue:  null,
-  text: 'You fire a red flare.\n\nIt tears through the smoke and hangs in the sky like a dying star.\n\nFor three seconds, everything is still.\n\nThen — from across the district — two green flares answer.\n\nSomeone is alive. Someone saw you.',
+  text: 'Red flare. Straight up.\n\nYou count. One. Two. Three. Four. Five.\n\nTwo green flares answer from the northeast.\n\nSomeone is alive. Someone is still thinking.',
   choices: [
-    { label: 'Move toward the green flares',   next: 'scene5' },
-    { label: 'Fire a second flare to confirm', end:  'The second flare gives away your position.\n\nNot to the Scouts.\n\nTo the fifteen-meter Titan that had been standing perfectly still in the smoke.\n\n— YOU DIED' }
+    { label: 'Move toward the green flares.',   next: 'scene5' },
+    { label: 'Fire a second flare to confirm.', end:  'The Titan forty meters to your left had been standing still for three minutes.\n\nYour second flare gave it a reason to move.\n\n-- YOU DIED' }
   ]
 };

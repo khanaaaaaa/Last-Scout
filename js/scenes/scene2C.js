@@ -2,13 +2,13 @@ const scene2C = {
   bg:        'assets/bg/street.png',
   choicesBg: 'assets/bg/street_choice.png',
   char:      'assets/chars/mikasa.png',
-  tag:       'Shiganshina  /  Residential District',
+  tag:       'Shiganshina  /  Residential District  /  07:05',
   rank:      'Scout Regiment',
-  dialogue:  { speaker: 'Mikasa Ackerman', line: '"You — Scout. Take the child. I\'ll cover you."' },
-  text: 'Mikasa drops from a rooftop beside you, blades drawn, ODM gear hissing.\n\nShe doesn\'t ask. She points at the child pinned under a collapsed wall and looks at you.\n\nA Titan is half a block away.',
+  dialogue:  { speaker: 'Mikasa Ackerman', line: 'Take the child. I\'ll cover you. Don\'t stop.' },
+  text: 'A hand under the rubble. A sound past crying.\n\nMikasa lands beside you. Blades drawn. Already scanning.\n\nA Titan at the end of the street. Ten meters. Moving fast.\n\nShe\'s waiting on you.',
   choices: [
-    { label: 'Pull the child free and run',           next: 'scene3', effect: s => { s.helped = true; s.mikasa = true; } },
-    { label: 'Tell Mikasa you\'ll cover her instead', next: 'scene3', effect: s => s.helped = true },
-    { label: 'Freeze — you cannot move',              end:  'Mikasa saves the child herself.\n\nShe doesn\'t look back at you.\n\nThe Titan does.\n\n— YOU DIED' }
+    { label: 'Pull the child free and run.',      next: 'scene3', effect: s => { s.helped = true; s.mikasa = true; } },
+    { label: 'Cover Mikasa while she pulls them.', next: 'scene3', effect: s => s.helped = true },
+    { label: 'You can\'t move.',                  end:  'Mikasa pulls the child herself.\n\nShe doesn\'t look back.\n\nThe Titan does.\n\n-- YOU DIED' }
   ]
 };

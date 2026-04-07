@@ -45,6 +45,6 @@
 }
 
 @keyframes screenFlicker {
-  0%, 95%, 97%, 100% { opacity: 0; }
-  96%                 { opacity: 1; }
+  0%, 94%, 96%, 100% { opacity: 0; }
+  95%                 { opacity: 1; }
 }

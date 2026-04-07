@@ -1,11 +1,8 @@
-const charPortrait = document.getElementById('char-portrait');
-const charName     = document.getElementById('char-name');
-const loreTag      = document.getElementById('lore-tag');
-const rankEl       = document.getElementById('rank');
-const dialogueBox  = document.getElementById('dialogue-box');
-const dialogueSpk  = document.getElementById('dialogue-speaker');
-const dialogueLine = document.getElementById('dialogue-line');
-const gamePanel    = document.getElementById('game');
+const charPortrait   = document.getElementById('char-portrait');
+const charName       = document.getElementById('char-name');
+const dialogueBox    = document.getElementById('dialogue-box');
+const dialogueTab    = document.getElementById('dialogue-speaker-tab');
+const dialogueLine   = document.getElementById('dialogue-line');
 
 const CHAR_NAMES = {
   eren:   'Eren Yeager',
@@ -14,11 +11,6 @@ const CHAR_NAMES = {
   levi:   'Captain Levi',
   erwin:  'Commander Erwin Smith'
 };
-
-function setHud(scene) {
-  loreTag.textContent = scene.tag  || '';
-  rankEl.textContent  = scene.rank || 'Scout Regiment';
-}
 
 function setChar(scene) {
   if (scene.char) {
@@ -33,28 +25,22 @@ function setChar(scene) {
   } else {
     charPortrait.style.opacity = '0';
     setTimeout(() => {
-      charPortrait.style.display = 'none';
-      charName.style.display     = 'none';
-      charPortrait.removeAttribute('data-char');
+      charPortrait.style.display         = 'none';
+      charName.style.display             = 'none';
       charPortrait.style.backgroundImage = 'none';
+      charPortrait.removeAttribute('data-char');
     }, 600);
   }
 }
 
-function fadePanel(visible) {
-  return new Promise(resolve => {
-    gamePanel.style.transition = 'opacity 0.9s ease';
-    gamePanel.style.opacity    = visible ? '1' : '0';
-    setTimeout(resolve, 950);
-  });
-}
-
 function showDialogue(speaker) {
-  dialogueSpk.textContent  = speaker;
+  dialogueTab.textContent = speaker;
+  dialogueTab.classList.remove('hidden');
   dialogueLine.textContent = '';
-  dialogueBox.classList.remove('hidden');
+  soundDialogue();
 }
 
 function hideDialogue() {
-  dialogueBox.classList.add('hidden');
+  dialogueTab.classList.add('hidden');
+  dialogueLine.textContent = '';
 }
