@@ -1,6 +1,7 @@
 var currentScene = null;
 var isTyping = false;
 var typeInterval = null;
+var typingCallback = null;
 var gameState = {
   helped: false,
   selfish: false,
@@ -28,11 +29,13 @@ function startTyping(element, text, speed, callback) {
     clearInterval(typeInterval);
     element.textContent = text;
     isTyping = false;
+    typingCallback = null;
     if (callback) callback();
     return;
   }
 
   isTyping = true;
+  typingCallback = callback;
   element.textContent = '';
   var i = 0;
 
@@ -42,6 +45,7 @@ function startTyping(element, text, speed, callback) {
     if (i >= text.length) {
       clearInterval(typeInterval);
       isTyping = false;
+      typingCallback = null;
       if (callback) callback();
     }
   }, speed || 25);
@@ -174,13 +178,12 @@ function showEnding(message) {
 }
 
 document.getElementById('story-box').onclick = function() {
-  if (isTyping) {
-    clearInterval(typeInterval);
-    storyText.textContent = currentScene ? currentScene.text : '';
-    isTyping = false;
-    clickToContinue.style.display = 'none';
-    if (currentScene) showButtons(currentScene.choices);
-  }
+  if (!isTyping) return;
+  clearInterval(typeInterval);
+  isTyping = false;
+  var cb = typingCallback;
+  typingCallback = null;
+  if (cb) cb();
 };
 
 showScene('scene1');
