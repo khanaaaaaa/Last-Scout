@@ -24,18 +24,22 @@ var locationText = document.getElementById('location-text');
 var charImg = document.getElementById('character-img');
 var charNameText = document.getElementById('character-name-text');
 
+var currentElement = null;
+
 function startTyping(element, text, speed, callback) {
   if (isTyping) {
     clearInterval(typeInterval);
     element.textContent = text;
     isTyping = false;
     typingCallback = null;
+    currentElement = null;
     if (callback) callback();
     return;
   }
 
   isTyping = true;
   typingCallback = callback;
+  currentElement = element;
   element.textContent = '';
   var i = 0;
 
@@ -46,6 +50,7 @@ function startTyping(element, text, speed, callback) {
       clearInterval(typeInterval);
       isTyping = false;
       typingCallback = null;
+      currentElement = null;
       if (callback) callback();
     }
   }, speed || 25);
@@ -181,8 +186,17 @@ document.getElementById('story-box').onclick = function() {
   if (!isTyping) return;
   clearInterval(typeInterval);
   isTyping = false;
+  var el = currentElement;
   var cb = typingCallback;
   typingCallback = null;
+  currentElement = null;
+  if (el && currentScene) {
+    if (el === dialogueText) {
+      el.textContent = currentScene.dialogue.line;
+    } else {
+      el.textContent = currentScene.text;
+    }
+  }
   if (cb) cb();
 };
 
